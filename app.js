@@ -2,6 +2,8 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 
+var routes = require('./routes/index');
+var users = require('./routes/users');
 
 var app = express();
 
@@ -11,19 +13,10 @@ app.set('view engine', 'hbs');
 
 
 
-app.get('/', function(req, res, next){
-   res.send("i'm waiting for something to do"); 
-});
 
-app.get('/other', function(req, res, next){
-    var vm = {
-        title: "A cool title from model",
-        meme: "you can't just walk into mordor"
-    };
-   res.render('index', vm); 
-   
-});
 
+app.use('/', routes);
+app.use('/users', users)
 
 
 var server = app.listen(process.env.PORT ||3100, function(){
