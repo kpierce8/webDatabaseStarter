@@ -10,7 +10,7 @@ router.get('/create', function(req, res, next) {
 });
 
 router.post('/create', function(req, res, next) {
-userService.addUser(req.body, function(err){
+userService.AddUser(req.body, function(err){
     if (err) {
          var vm = {
         title: "Create a user",
