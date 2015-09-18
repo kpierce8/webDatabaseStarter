@@ -2,10 +2,13 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
-
+var config = ('./config');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
+mongoose.connect(config.mongoUri);
 
 var app = express();
 

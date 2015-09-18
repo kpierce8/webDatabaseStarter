@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var userService = require('../services/user-service');
 
 router.get('/create', function(req, res, next) {
     var vm = {
@@ -10,8 +10,8 @@ router.get('/create', function(req, res, next) {
 });
 
 router.post('/create', function(req, res, next) {
-    var somethingGoesWrong = true;
-    if (somethingGoesWrong) {
+userService.addUser(req.body, function(err){
+    if (err) {
          var vm = {
         title: "Create a user",
         input: req.body,
@@ -22,6 +22,7 @@ router.post('/create', function(req, res, next) {
     }
    
    res.redirect('../other');
+  });
 });
 
 
