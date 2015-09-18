@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kpierce8/webDatabaseStarter",
   "dependencies": {
+    "body-parser": "^1.14.0",
     "express": "^4.13.3",
     "hbs": "^3.1.1",
     "mongoose": "^4.1.7",

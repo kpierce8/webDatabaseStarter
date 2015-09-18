@@ -2,10 +2,10 @@
     <p>Simply create an account to get started logging your favorite color.</p>
 </div>
 <div>
-    <form name="create-user-form" id="create-user-form"  method="POST">
+    <form name="create-user-form" id="create-user-form"  method="post">
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required/>
+            <input type="email" id="email" name="email" required value="{{input.email}}"/>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
@@ -14,5 +14,6 @@
         <div class="form-submit">
             <input type="submit" value="Create my account" />
         </div>
+        <span style="color:red;">{{error}} </span>
     </form>
 </div>
