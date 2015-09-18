@@ -1,20 +1,15 @@
 var express = require('express');
 var router = express.Router();
-
+var passport = require('passport');
 
 router.get('/', function(req, res, next){
-   res.send("i'm waiting for something to do"); 
+   res.render('index'); 
 });
 
-router.get('/other', function(req, res, next){
-    var d = new Date(Date.now());
-    var vm = {
-        title: "A cool title from model",
-        meme: "you can't just walk into mordor",
-        time: d
-    };
-   res.render('index', vm); 
-   
+
+router.post('/login', passport.authenticate('local'), function(req, res, next) {
+    res.redirect('/colors');
 });
+
 
 module.exports = router;

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var userService = require('../services/user-service');
+var passport = require('passport');
 
 router.get('/create', function(req, res, next) {
     var vm = {
@@ -22,8 +23,12 @@ userService.AddUser(req.body, function(err){
     return res.render('users/create', vm); 
     }
    
-   res.redirect('../other');
+   res.redirect('/colors');
   });
+});
+
+router.post('/login', passport.authenticate('local'), function(req, res, next) {
+    res.redirect('/colors');
 });
 
 
