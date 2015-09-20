@@ -3,7 +3,14 @@ var router = express.Router();
 var passport = require('passport');
 
 router.get('/', function(req, res, next){
-   res.render('login'); 
+var d = new Date(Date.now());
+    var vm = {
+        time: d
+    };
+    if (req.user) {
+        res.redirect('/colors');
+    };
+   res.render('login', vm); 
 });
 
 

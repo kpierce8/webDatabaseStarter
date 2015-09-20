@@ -2,7 +2,7 @@ var User = require('../models/users').User;
 
 
 
-exports.AddUser = function(user, next) {
+exports.addUser = function(user, next) {
   var newUser = new User({
      email: user.email.toLowerCase(),
      password: user.password

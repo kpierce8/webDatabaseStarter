@@ -12,10 +12,11 @@ router.get('/create', function(req, res, next) {
 router.post('/create', function(req, res, next) {
 userService.addUser(req.body, function(err){
     if (err) {
+        console.log(err);
          var vm = {
         title: "Create a user",
         input: req.body,
-        error: 'something went wrong'
+        error: err
     };
     delete vm.input.password;
     return res.render('users/create', vm); 
@@ -23,6 +24,11 @@ userService.addUser(req.body, function(err){
    
    res.redirect('../colors');
   });
+});
+
+router.get('/logout', function(req, res, next) {
+    req.logout();
+    res.redirect('/');
 });
 
 

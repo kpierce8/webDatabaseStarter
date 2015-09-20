@@ -7,8 +7,10 @@ router.get('/', function(req, res, next){
     var vm = {
         title: "A cool title from model",
         meme: "you can't just walk into mordor",
+        name: req.user ? req.user.email : null,
         time: d
     };
+    console.log(vm);
    res.render('colors', vm); 
    
 });

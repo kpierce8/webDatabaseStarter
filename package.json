@@ -18,6 +18,7 @@
   "homepage": "https://github.com/kpierce8/webDatabaseStarter",
   "dependencies": {
     "body-parser": "^1.14.0",
+    "cookie-parser": "^1.4.0",
     "express": "^4.13.3",
     "express-session": "^1.11.3",
     "hbs": "^3.1.1",
