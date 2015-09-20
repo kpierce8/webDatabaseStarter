@@ -3,7 +3,8 @@ module.exports = function() {
   var passportLocal = require('passport-local');
   var userService = require('../services/user-service');
   
-  passport.use(new passportLocal.Strategy(function(email, password, next){
+  passport.use(new passportLocal.Strategy({usernameField: 'email'}, function( email, password, next){
+      console.log("authentication started");
       userService.findUser(email, function(err, user){
           if (err) {
               return next(err);

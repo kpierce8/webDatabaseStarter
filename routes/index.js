@@ -3,11 +3,12 @@ var router = express.Router();
 var passport = require('passport');
 
 router.get('/', function(req, res, next){
-   res.render('index'); 
+   res.render('login'); 
 });
 
 
-router.post('/login', passport.authenticate('local'), function(req, res, next) {
+router.post('/', passport.authenticate('local'), function(req, res, next) {
+    console.log(req.body);
     res.redirect('/colors');
 });
 
