@@ -11,6 +11,9 @@ router.get('/', function(req, res, next){
         time: d
     };
     console.log(vm);
+    if(!req.user){
+        res.redirect('/');
+    }
    res.render('colors', vm); 
    
 });

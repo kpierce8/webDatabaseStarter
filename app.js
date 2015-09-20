@@ -12,7 +12,9 @@ var colors = require('./routes/colors');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+
 var passportConfig = require('./auth/passport-config');
+var restrict = require('./auth/restrict');
 passportConfig();
 
 mongoose.connect(config.mongoUri);
@@ -39,6 +41,7 @@ app.use(passport.session());
 
 app.use('/', routes);
 app.use('/users', users);
+//app.use(restrict);
 app.use('/colors', colors);
 
 var server = app.listen(process.env.PORT ||3100, function(){
