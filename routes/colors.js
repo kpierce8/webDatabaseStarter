@@ -20,8 +20,8 @@ router.get('/', function(req, res, next){
 
 
 router.post('/', function(req, res, next){
-    console.log('hit the color post route');
-    colorService.addColor(req.body, function(err){
+  
+    var colors = colorService.addColor(req.body, function(err){
     if (err) {
         console.log(err);
          var vm = {
@@ -29,11 +29,18 @@ router.post('/', function(req, res, next){
         input: req.body,
         error: err
         };
-
-//    return res.render('users/create', vm); 
-        }
-
-    });
+    }
+    console.log('almost there');
+     }); 
+     
+     var vm = {
+        title: "A cool title from model",
+        meme: "you can't just walk into mordor",
+        name: req.user ? req.user.email : null,
+        colors: colors
+    };
+    return res.render('colors', vm); 
+   
 });
 
 module.exports = router;

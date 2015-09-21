@@ -8,12 +8,10 @@ exports.addUser = function(user, next) {
             return next(err);
         }
 
-
         var newUser = new User({
             email: user.email.toLowerCase(),
             password: hash
         });
-
 
         newUser.save(function(err) {
             if (err) {
@@ -22,8 +20,6 @@ exports.addUser = function(user, next) {
             return next(null);
         });
     });
-
-
 };
 // added to check for existing user during create account  
 exports.findUser = function(email, next) {
@@ -32,5 +28,4 @@ exports.findUser = function(email, next) {
     }, function(err, user) {
         next(err, user);
     });
-
 };
