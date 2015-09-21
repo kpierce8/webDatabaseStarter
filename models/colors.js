@@ -8,8 +8,8 @@ var colorSchema = new Schema ({
     createdDate: {type: Date, default: Date.now}
 });
 
-var Colors = mongoose.model('User', colorSchema);
+var Color = mongoose.model('Color', colorSchema);
 
 module.exports = {
-    Colors: Colors
+    Color: Color
 };

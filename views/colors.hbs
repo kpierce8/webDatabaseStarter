@@ -3,9 +3,15 @@
 <p>The time is {{time}}</p> 
 <p> {{name}} is logged in</p>
 
-<form>
-    <input type="text">What's you favorite color?</input>
-    <input type="button" value="Submit"></input>
+<form method="post">
+
+     <div class="form-group">
+            <label for="color">What's you're favorite color?</label>
+            <input type="text" id="color" name="color" required value="{{input.color}}"/>
+        </div>
+    <div class="form-submit">
+            <input type="submit" value="Submit" />
+        </div>
 </form>
 
 <a href="/users/logout">Log out</a></br>

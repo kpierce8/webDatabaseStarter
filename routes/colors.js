@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var colorService = require('../services/color-service');
 
 router.get('/', function(req, res, next){
     var d = new Date(Date.now());
@@ -16,6 +16,24 @@ router.get('/', function(req, res, next){
     }
    res.render('colors', vm); 
    
+});
+
+
+router.post('/', function(req, res, next){
+    console.log('hit the color post route');
+    colorService.addColor(req.body, function(err){
+    if (err) {
+        console.log(err);
+         var vm = {
+        title: "Create a user",
+        input: req.body,
+        error: err
+        };
+
+//    return res.render('users/create', vm); 
+        }
+
+    });
 });
 
 module.exports = router;
