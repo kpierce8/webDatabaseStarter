@@ -19,6 +19,15 @@ router.get('/', function(req, res, next){
 });
 
 
+router.get('/colorlist', function(req, res){
+    
+    var email = 'mer@mer.com';
+   var colors = colorService.findColors(email);
+   
+   res.end(colors);
+   
+});
+
 router.post('/', function(req, res, next){
   
     var colors = colorService.addColor(req.body, function(err){

@@ -30,12 +30,20 @@ exports.addColor = function(color, next) {
         });
 };
 // added to check for existing user during create account  
-exports.findColors = function(email, next) {
-   Color.find({
-        email: email.toLowerCase()
-    }, function(err, colors) {
-        next(err, colors);
-        console.log(colors);
-    });
-    
+exports.findColors = function(email) {
+        Color.find({
+                email: email.toLowerCase()
+            })
+            .exec(function(err, colors) {
+                if (err) {
+                    console.log(err);
+                }
+                console.log('now list colors');
+                // console.log(colors)
+                return colors;
+
+            });
+        
+        
+ 
 };
