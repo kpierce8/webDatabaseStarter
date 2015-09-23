@@ -50,7 +50,8 @@ app.use('/colors', colors);
 
 app.use(function(req, res){
   
-        console.log("color count is " + req.colors2.length); 
+console.log("color count is " + req.colors2.length); 
+res.send(req.colors2);
 });
 
 var server = app.listen(process.env.PORT ||3100, function(){

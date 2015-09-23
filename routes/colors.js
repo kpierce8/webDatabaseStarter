@@ -20,18 +20,22 @@ router.get('/', function(req, res, next){
 
 
 router.get('/colorlist', function(req, res, next){
-    
+   colorService.findColors(req, res, next);
+});
+
+
+router.get('/coloruserlist', function(req, res, next){
     var email = 'mer@mer.com';
     req.params['email'] = email;
-   var colors = colorService.findColors2(req, res, next);
-   console.log(colors);
- 
-   
+   colorService.findUserColors(req, res, next);
 });
+
+
+
 
 router.post('/', function(req, res, next){
   
-    var colors = colorService.addColor(req.body, function(err){
+    var colors = colorService.addColor(req.body, res, function(err){
     if (err) {
         console.log(err);
          var vm = {
