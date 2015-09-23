@@ -54,7 +54,7 @@ router.post(['/','/colorlist','/coloruserlist'], function(req, res, next){
         colors: colors
     };
     //return res.render('colors', vm); 
-   return next();
+   //return next();
 });
 
 module.exports = router;
