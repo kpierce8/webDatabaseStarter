@@ -25,15 +25,15 @@ router.get('/colorlist', function(req, res, next){
 
 
 router.get('/coloruserlist', function(req, res, next){
-    var email = 'mer@mer.com';
-    req.params['email'] = email;
-   colorService.findUserColors(req, res, next);
+  //  var email = 'mer@mer.com';
+  // req.params['email'] = email;
+  colorService.findUserColors(req, res, next);
 });
 
 
 
 
-router.post('/', function(req, res, next){
+router.post(['/','/colorlist','/coloruserlist'], function(req, res, next){
   
     var colors = colorService.addColor(req.body, res, function(err){
     if (err) {

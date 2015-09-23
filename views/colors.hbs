@@ -1,5 +1,6 @@
-<div style="background:#f11">
-<h1> {{meme}}</h1></br>
+
+<div id="colorblock">
+
 <p>The time is {{time}}</p> 
 <p> {{name}} is logged in</p>
 
@@ -14,6 +15,21 @@
         </div>
 </form>
 
+<a href="/colors/coloruserlist">My Colors</a></br>
+<a href="/colors/colorlist">Everyone's Colors</a></br>
 <a href="/users/logout">Log out</a></br>
 <a href="/">Home</a>
 </div>
+
+
+<div>
+{{#if colors}}
+<h1>Favorite color list</h1>   
+ {{#each colors}} 
+     <ul>
+        <li> {{ email }} favorite color is {{ color }} </li>
+        </ul> 
+    {{/each}}
+{{/if}}
+</div>
+

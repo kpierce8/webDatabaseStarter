@@ -13,7 +13,7 @@ exports.addColor = function(color, res, next) {
             if (err) {
                 return next(err);
             }
-            res.redirect('../colors/coloruserlist');
+            res.redirect('../colors');
         });
 };
 // added to check for existing user during create account  
@@ -22,7 +22,7 @@ exports.addColor = function(color, res, next) {
 exports.findUserColors = function(req, res, next) {
         if (req.params) {  console.log(req.params); }
        
-        Color.find({email: req.params.email.toLowerCase()},
+        Color.find({email: req.user.email},
         function(err, colors) {
             if (!err) {
                req['colors2']=colors;
@@ -32,7 +32,6 @@ exports.findUserColors = function(req, res, next) {
 };
 
 exports.findColors = function(req, res, next) {
-       
         Color.find({},
         function(err, colors) {
             if (!err) {

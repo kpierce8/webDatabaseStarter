@@ -25,6 +25,8 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cookieParser());
+app.use('/public', express.static(__dirname + '/public'));
+//app.use('/public', express.static(path.join(__dirname, 'public')));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -49,9 +51,17 @@ app.use('/users', users);
 app.use('/colors', colors);
 
 app.use(function(req, res){
+
+ var vm = {
+        title: "A cool title from model",
+        name: req.user ? req.user.email : null,
+        colors: req.colors2
+    };
+   // console.log("color count is " + req.colors2.length); 
+    return res.render('colors', vm); 
   
-console.log("color count is " + req.colors2.length); 
-res.send(req.colors2);
+
+
 });
 
 var server = app.listen(process.env.PORT ||3100, function(){
