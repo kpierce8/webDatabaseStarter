@@ -53,8 +53,8 @@ router.post(['/','/colorlist','/coloruserlist'], function(req, res, next){
         name: req.user ? req.user.email : null,
         colors: colors
     };
-    return res.render('colors', vm); 
-   
+    //return res.render('colors', vm); 
+   return next();
 });
 
 module.exports = router;
