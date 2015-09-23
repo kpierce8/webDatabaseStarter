@@ -22,7 +22,7 @@ userService.addUser(req.body, function(err){
     return res.render('users/create', vm); 
     }
    
-   res.redirect('../colors');
+    res.redirect('/');
   });
 });
 
