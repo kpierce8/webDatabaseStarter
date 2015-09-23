@@ -19,12 +19,13 @@ router.get('/', function(req, res, next){
 });
 
 
-router.get('/colorlist', function(req, res){
+router.get('/colorlist', function(req, res, next){
     
     var email = 'mer@mer.com';
-   var colors = colorService.findColors(email);
+    req.params['email'] = email;
+   var colors = colorService.findColors(req, res, next);
    
-   res.end(colors);
+  res.end(JSON.stringify(colors));
    
 });
 
