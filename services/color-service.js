@@ -1,6 +1,6 @@
 var Color = require('../models/colors').Color;
 
-var  findColors = function(email) {
+var  findColors3 = function(email) {
     Color.find({
         email: email.toLowerCase()
     }, function(err, colors) {
@@ -25,7 +25,7 @@ exports.addColor = function(color, next) {
                 return next(err);
             }
             console.log('now what?');
-            return findColors(color.email);
+            return findColors3(color.email);
             //return;
         });
 };
@@ -46,4 +46,19 @@ exports.findColors = function(req, res, next) {
             });
 
     return someColors.colors;
+};
+
+exports.findColors2 = function(req, res, next) {
+        if (req.params) {  console.log(req.params); }
+       
+        Color.find({email: req.params.email.toLowerCase()},
+        function(err, colors) {
+            if (!err) {
+                console.log(colors);
+               req['colors2']=colors;
+               next();
+            }
+    });
+
+   
 };

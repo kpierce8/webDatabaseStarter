@@ -48,6 +48,11 @@ app.use('/users', users);
 //app.use(restrict);
 app.use('/colors', colors);
 
+app.use(function(req, res){
+  
+        console.log("color count is " + req.colors2.length); 
+});
+
 var server = app.listen(process.env.PORT ||3100, function(){
     console.log('started up on');
 });

@@ -23,9 +23,9 @@ router.get('/colorlist', function(req, res, next){
     
     var email = 'mer@mer.com';
     req.params['email'] = email;
-   var colors = colorService.findColors(req, res, next);
-   
-  res.end(JSON.stringify(colors));
+   var colors = colorService.findColors2(req, res, next);
+   console.log(colors);
+ 
    
 });
 
