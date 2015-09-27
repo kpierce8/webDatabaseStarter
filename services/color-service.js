@@ -8,7 +8,6 @@ exports.addColor = function(color, res, next) {
             color: color.color
         });
 
-
         newColor.save(function(err) {
             if (err) {
                 return next(err);
@@ -16,7 +15,6 @@ exports.addColor = function(color, res, next) {
             res.redirect('../colors');
         });
 };
-// added to check for existing user during create account  
 
 
 exports.findUserColors = function(req, res, next) {

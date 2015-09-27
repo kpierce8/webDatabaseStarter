@@ -25,8 +25,6 @@ router.get('/colorlist', function(req, res, next){
 
 
 router.get('/coloruserlist', function(req, res, next){
-  //  var email = 'mer@mer.com';
-  // req.params['email'] = email;
   colorService.findUserColors(req, res, next);
 });
 
@@ -47,14 +45,13 @@ router.post(['/','/colorlist','/coloruserlist'], function(req, res, next){
     console.log('almost there');
      }); 
      
-     var vm = {
-        title: "A cool title from model",
-        meme: "you can't just walk into mordor",
-        name: req.user ? req.user.email : null,
-        colors: colors
-    };
-    //return res.render('colors', vm); 
-   //return next();
+    //  var vm = {
+    //     title: "A cool title from model",
+    //     meme: "you can't just walk into mordor",
+    //     name: req.user ? req.user.email : null,
+    //     colors: colors
+    // };
+
 });
 
 module.exports = router;
