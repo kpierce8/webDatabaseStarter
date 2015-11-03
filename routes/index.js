@@ -16,6 +16,7 @@ var d = new Date(Date.now());
 
 router.post('/', passport.authenticate('local'), function(req, res, next) {
     console.log(req.body);
+    
     res.redirect('/colors');
 });
 
